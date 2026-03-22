@@ -122,13 +122,7 @@
             $await(Jscex.Async.sleep(10));
         }
 
-    for (var i = 0; i < 100; i++) {
-        tree.ctx.clearRect(0, 0, width, height);
-        tree.grow();
-        tree.flower(2);
         foot.draw();
-        $await(Jscex.Async.sleep(10));
-        }
     }));
 
   var jumpAnimate = eval(Jscex.compile("async", function () {
