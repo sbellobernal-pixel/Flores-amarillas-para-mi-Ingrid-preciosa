@@ -159,6 +159,7 @@
         $await(seedAnimate());
         $await(growAnimate());
         $await(flowAnimate());
+        $await(moveAnimate());
 
         textAnimate().start();
 
