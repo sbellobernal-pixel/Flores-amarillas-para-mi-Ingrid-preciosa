@@ -116,17 +116,13 @@
 
     var moveAnimate = eval(Jscex.compile("async", function () {
         tree.snapshot("p1", 240, 0, 610, 680);
+
         while (tree.move("p1", 500, 0)) {
             foot.draw();
             $await(Jscex.Async.sleep(10));
         }
-        foot.draw();
-        tree.snapshot("p2", 500, 0, 610, 680);
 
-        canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
-        canvas.css("background", "#F5E8DC");
-        $await(Jscex.Async.sleep(300));
-        canvas.css("background", "none");
+        foot.draw();
     }));
 
   var jumpAnimate = eval(Jscex.compile("async", function () {
