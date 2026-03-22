@@ -114,15 +114,22 @@
         } while (tree.canFlower());
     }));
 
+    var moveAnimate = eval(Jscex.compile("async", function () {
+        tree.snapshot("p1", 240, 0, 610, 680);
 
-    var moveAnimate = eval(Jscex.compile("async", function () { 
-        for (var i = 0; i < 100; i++) { 
-            tree.ctx.clearRect(0, 0, width, height); 
-            tree.grow(); tree.flower(2); foot.draw(); 
-            $await(Jscex.Async.sleep(10)); 
-        } 
+        while (tree.move("p1", 500, 0)) {
+            foot.draw();
+            $await(Jscex.Async.sleep(10));
+        }
+
+    for (var i = 0; i < 100; i++) {
+        tree.ctx.clearRect(0, 0, width, height);
+        tree.grow();
+        tree.flower(2);
+        foot.draw();
+        $await(Jscex.Async.sleep(10));
+        }
     }));
-       
 
   var jumpAnimate = eval(Jscex.compile("async", function () {
         var ctx = tree.ctx;
@@ -154,6 +161,7 @@
         $await(seedAnimate());
         $await(growAnimate());
         $await(flowAnimate());
+        $await(moveAnimate());
 
         $await(Jscex.Async.sleep(500));
 
