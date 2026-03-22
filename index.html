@@ -38,7 +38,7 @@
                     <span class="say">Flores Amarillas para el amor de mi vida:</span>
                     <span class="say"><br></span>
                     <span class="say">Si pudiera elegir un lugar seguro, sería a tu lado.</span>
-                    <span class="say"><span class="space"></span> —Te amo cada dia mas.....</span>
+                    <span class="say"><span class="space"></span> —Te amo cada día mas.....</span>
                 </div>
             </div>
             <div id="clock-box">
@@ -58,7 +58,22 @@
 
         $("#canvas").click(function() {
             if (!mostrado) {
-                $("#code").fadeIn(1000).typewriter();
+
+                $("#code").show(); // ❗ ya NO typewriter
+
+                let lines = $("#code .say");
+                let i = 0;
+
+                function mostrarLinea() {
+                    if (i < lines.length) {
+                        $(lines[i]).hide().fadeIn(800);
+                        i++;
+                        setTimeout(mostrarLinea, 900);
+                    }
+                }
+
+                mostrarLinea();
+
                 $("#clock-box").fadeIn(1000);
                 mostrado = true;
             }
